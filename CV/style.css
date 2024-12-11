@@ -1,0 +1,207 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #2a68b9;
+    color: #03176d;
+    transition: background-color 0.3s, color 0.3s;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Background with parallax effect */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #180755, #1ed3eb);
+    z-index: -1;
+    transition: background-position 0.1s ease;
+}
+
+/* Header styles */
+header {
+    background: rgba(0, 123, 255, 0.8);
+    padding: 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #4ea3db;
+}
+
+body.dark-mode header {
+    background: rgba(0, 50, 100, 0.9);
+}
+
+/* Hamburger Menu Styles */
+#menuToggle {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#checkbox {
+    display: none;
+}
+
+.toggle {
+    position: relative;
+    width: 40px;
+    cursor: pointer;
+    display: block;
+    height: calc(4px * 3 + 11px * 2);
+}
+
+.bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 4px;
+    border-radius: 2px;
+    background: #7b52b9;
+    transition: all 0.35s cubic-bezier(0.5, -0.35, 0.35, 1.5);
+}
+
+/* Collapse Animation */
+.bar--top {
+    top: 0;
+}
+
+.bar--middle {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.bar--bottom {
+    bottom: 0;
+}
+
+#checkbox:checked + .toggle .bar--top {
+    transform: translateY(11px) rotate(45deg);
+}
+
+#checkbox:checked + .toggle .bar--middle {
+    opacity: 0;
+}
+
+#checkbox:checked + .toggle .bar--bottom {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+/* Navigation menu */
+nav {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: rgba(42, 9, 95, 0.548);
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 999;
+}
+
+nav.visible {
+    display: block;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+nav ul li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+/* Background with gradient and parallax effect */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #3479c2, #082f53);
+    z-index: -1;
+    transition: background 0.3s ease, background-position 0.1s ease;
+}
+
+/* Dark mode gradient background */
+body.dark-mode .background {
+    background: linear-gradient(135deg, #001f3f, #004080);
+}
+
+/* Parallax highlight effect */
+body.parallax-active .background {
+    background: radial-gradient(circle at var(--x) var(--y), rgb(0, 0, 0), transparent 100%), 
+                linear-gradient(135deg, #000000, #000000);
+}
+
+body.dark-mode.parallax-active .background {
+    background: radial-gradient(circle at var(--x) var(--y), rgba(255, 255, 255, 0.1), transparent 100%), 
+                linear-gradient(135deg, #001f3f, #004080);
+}
+
+body.parallax-active .background {
+    background: radial-gradient(circle at var(--x) var(--y), #00418159, transparent 100%);
+}
+
+/* Dark Mode Switch - From Uiverse.io by cuzpq */
+.theme-checkbox {
+    --toggle-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 6.25em;
+    height: 3.125em;
+    background: linear-gradient(to right, #292829 50%, #a6a6a7 50%) no-repeat;
+    background-size: 205%;
+    background-position: 0;
+    transition: 0.4s;
+    border-radius: 99em;
+    position: relative;
+    cursor: pointer;
+    font-size: var(--toggle-size);
+}
+
+.theme-checkbox::before {
+    content: "";
+    width: 2.25em;
+    height: 2.25em;
+    position: absolute;
+    top: 0.438em;
+    left: 0.438em;
+    background: linear-gradient(to right, #292829 50%, #a6a6a7 50%) no-repeat;
+    background-size: 205%;
+    background-position: 100%;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+.theme-checkbox:checked::before {
+    left: calc(100% - 2.25em - 0.438em);
+    background-position: 0;
+}
+
+.theme-checkbox:checked {
+    background-position: 100%;
+}
